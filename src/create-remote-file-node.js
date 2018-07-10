@@ -87,7 +87,7 @@ const createFilePath = (directory, filename, ext) =>
 const queue = new Queue(pushToQueue, {
   id: `url`,
   merge: (old, _, cb) => cb(old),
-  concurrent: 200,
+  concurrent: 3,
 })
 
 /**
