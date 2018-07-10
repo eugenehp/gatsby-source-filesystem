@@ -132,6 +132,9 @@ async function pushToQueue(task, cb) {
  */
 const requestRemoteNode = (url, headers, tmpFilename, filename) =>
   new Promise((resolve, reject) => {
+
+    if(fs.existsSync(filename)) return resolve(filename);
+
     const responseStream = got.stream(url, {
       ...headers,
       timeout: 30000,
